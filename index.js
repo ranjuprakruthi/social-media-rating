@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("userForm");
+    const togglePassword = document.getElementById("togglePassword");
 
+    // Handle form submission
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent default form submission
 
@@ -33,5 +35,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error:", error);
                 alert("Error saving data. Please try again.");
             });
+    });
+
+    // Handle password visibility toggle
+    togglePassword.addEventListener("click", function () {
+        const passwordField = document.getElementById("password");
+        const type = passwordField.getAttribute("type");
+
+        if (type === "password") {
+            passwordField.setAttribute("type", "text");
+            this.textContent = "🙈"; // Change icon to hide
+        } else {
+            passwordField.setAttribute("type", "password");
+            this.textContent = "👁️"; // Change icon to show
+        }
     });
 });
