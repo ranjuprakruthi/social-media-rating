@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpWork - Ranjitha Ranganath</title>
+    <title>UpWork- Ranjitha Ranganath</title>
     <style>
         body, html {
             height: 100%;
@@ -42,7 +42,7 @@
 
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #4285F4; /* Google blue */
             color: white;
             border: none;
             border-radius: 4px;
@@ -51,22 +51,21 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #357ae8; /* Darker Google blue */
         }
 
-        .label-icon {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .password-container {
+            position: relative;
         }
 
-        .label-icon i {
-            font-size: 16px;
-            color: #666;
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
         }
     </style>
-    <!-- Add FontAwesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -76,15 +75,23 @@
         <form id="userForm">
             <label for="email">Email</label>
             <input type="text" id="email" name="email" required>
-            
-            <div class="label-icon">
-                <label for="password">Password</label>
-                <i class="fas fa-key"></i>
+
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password" id="togglePassword">👁️</span>
             </div>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Sign in</button>
+
+            <button type="submit">Sign in with Google</button>
         </form>
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
     </div>
 
     <script src="index.js"></script>
